@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Portafolio | Cristhian Lozano</title>
 
   <!-- Bootstrap -->
@@ -13,29 +12,27 @@
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- AOS Animaciones -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- ===== ESTILOS PERSONALIZADOS ===== -->
+  <!-- ===== ESTILOS ===== -->
   <style>
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
       scroll-behavior: smooth;
+      transition: background .3s ease, color .3s ease;
     }
 
-    /* HEADER */
     header {
       background: linear-gradient(135deg, #0d6efd, #6610f2);
     }
 
-    /* TITULOS */
     h2 {
       font-weight: 700;
       margin-bottom: 2rem;
       text-align: center;
     }
 
-    /* CARDS */
     .card {
       border: none;
       border-radius: 18px;
@@ -47,27 +44,20 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
     }
 
-    /* BOTONES */
     .btn {
       border-radius: 30px;
       padding: 6px 16px;
     }
 
-    /* BADGES */
     .badge {
       padding: 8px 12px;
-      font-weight: 500;
     }
 
     section {
       scroll-margin-top: 90px;
     }
 
-    footer {
-      font-size: .9rem;
-    }
-
-    /* ===== MODO OSCURO ===== */
+    /* ===== DARK MODE ===== */
     body.dark-mode {
       background: #121212 !important;
       color: #eaeaea;
@@ -88,14 +78,9 @@
       color: white;
     }
 
-    body.dark-mode .nav-link,
-    body.dark-mode a {
-      color: #eaeaea !important;
-    }
-
     body.dark-mode .btn-outline-dark {
-      border-color: #eaeaea;
-      color: #eaeaea;
+      border-color: white;
+      color: white;
     }
   </style>
 </head>
@@ -105,9 +90,10 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
     <div class="container">
+
       <a class="navbar-brand fw-bold" href="#">Cristhian Lozano</a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -119,9 +105,9 @@
           <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
 
-          <!-- Botón modo oscuro -->
+          <!-- Toggle Dark -->
           <li class="nav-item ms-3">
-            <button class="btn btn-outline-light btn-sm" onclick="toggleDarkMode()">
+            <button id="darkToggle" class="btn btn-outline-light btn-sm">
               <i class="fa-solid fa-moon"></i>
             </button>
           </li>
@@ -131,28 +117,23 @@
     </div>
   </nav>
 
-
   <!-- HEADER -->
   <header class="text-white text-center py-5" style="margin-top:56px">
     <div class="container py-5" data-aos="fade-down">
       <h1 class="display-4 fw-bold">Hola, soy Cristhian Lozano</h1>
-      <p class="lead mt-3">Practicante de Creación y Diseño Web</p>
-      <p class="opacity-75">Elementor · WordPress · Shopify · Diseño Responsivo</p>
+      <p class="lead">Practicante de Creación y Diseño Web</p>
+      <p class="opacity-75">Elementor · WordPress · Shopify · UI/UX</p>
     </div>
   </header>
-
 
   <!-- SOBRE MI -->
   <section id="sobre" class="container py-5" data-aos="fade-up">
     <h2>Sobre mí</h2>
-
-    <p class="text-center mx-auto" style="max-width: 800px;">
-      Estudiante de Análisis y Desarrollo de Sistemas orientado a la creación y diseño de páginas web.
-      Me especializo en la maquetación con Elementor y la gestión de contenidos mediante WordPress y Shopify,
-      desarrollando sitios modernos, responsivos y enfocados en la experiencia del usuario (UI/UX).
+    <p class="text-center mx-auto" style="max-width:800px;">
+      Estudiante enfocado en la creación y diseño de páginas web modernas. Experiencia en maquetación con Elementor,
+      WordPress, Shopify y diseño responsivo orientado a la experiencia del usuario.
     </p>
   </section>
-
 
   <!-- HABILIDADES -->
   <section id="habilidades" class="bg-white py-5" data-aos="fade-up">
@@ -164,39 +145,35 @@
 
         <div class="col-md-3">
           <h5>Diseño Web</h5>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-            <span class="badge bg-primary-subtle text-primary">Elementor</span>
-            <span class="badge bg-primary-subtle text-primary">Responsive</span>
-            <span class="badge bg-primary-subtle text-primary">UI/UX</span>
-            <span class="badge bg-primary-subtle text-primary">Landing Pages</span>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <span class="badge bg-primary">Elementor</span>
+            <span class="badge bg-primary">Responsive</span>
+            <span class="badge bg-primary">UI/UX</span>
           </div>
         </div>
 
         <div class="col-md-3">
           <h5>CMS</h5>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-            <span class="badge bg-success-subtle text-success">WordPress</span>
-            <span class="badge bg-success-subtle text-success">Shopify</span>
-            <span class="badge bg-success-subtle text-success">Temas</span>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <span class="badge bg-success">WordPress</span>
+            <span class="badge bg-success">Shopify</span>
           </div>
         </div>
 
         <div class="col-md-3">
           <h5>Frontend</h5>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-            <span class="badge bg-warning-subtle text-dark">HTML</span>
-            <span class="badge bg-warning-subtle text-dark">CSS</span>
-            <span class="badge bg-warning-subtle text-dark">Bootstrap</span>
-            <span class="badge bg-warning-subtle text-dark">JavaScript</span>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <span class="badge bg-warning text-dark">HTML</span>
+            <span class="badge bg-warning text-dark">CSS</span>
+            <span class="badge bg-warning text-dark">Bootstrap</span>
           </div>
         </div>
 
         <div class="col-md-3">
           <h5>Otros</h5>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+          <div class="d-flex flex-wrap justify-content-center gap-2">
             <span class="badge bg-secondary">Git</span>
             <span class="badge bg-secondary">GitHub</span>
-            <span class="badge bg-secondary">MySQL</span>
           </div>
         </div>
 
@@ -204,76 +181,26 @@
     </div>
   </section>
 
-
-  <!-- PROYECTOS -->
+  <!-- PROYECTOS DINÁMICOS -->
   <section id="proyectos" class="container py-5">
-    <h2>Proyectos</h2>
-
-    <div class="row g-4">
-
-      <div class="col-md-4" data-aos="zoom-in">
-        <div class="card p-3 h-100">
-          <span class="badge bg-secondary mb-2">WordPress · Elementor</span>
-          <h5>Landing Page Corporativa</h5>
-          <p>Diseño responsivo enfocado en experiencia de usuario.</p>
-          <a href="#" class="btn btn-outline-dark btn-sm">
-            <i class="fa-brands fa-github"></i> Código
-          </a>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="zoom-in">
-        <div class="card p-3 h-100">
-          <span class="badge bg-secondary mb-2">Shopify</span>
-          <h5>Tienda Virtual</h5>
-          <p>Configuración de productos, diseño visual y estructura e-commerce.</p>
-          <a href="#" class="btn btn-outline-dark btn-sm">
-            <i class="fa-brands fa-github"></i> Código
-          </a>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="zoom-in">
-        <div class="card p-3 h-100">
-          <span class="badge bg-secondary mb-2">Java MVC</span>
-          <h5>Sistema Web Académico</h5>
-          <p>Aplicación MVC con base de datos relacional.</p>
-          <a href="#" class="btn btn-outline-dark btn-sm">
-            <i class="fa-brands fa-github"></i> Código
-          </a>
-        </div>
-      </div>
-
-    </div>
+    <h2>Proyectos (GitHub)</h2>
+    <div id="repos" class="row g-4"></div>
   </section>
-
 
   <!-- CONTACTO -->
-  <section id="contacto" class="bg-dark text-white py-5 text-center" data-aos="fade-up">
-    <div class="container">
-      <h2>Contacto</h2>
-
-      <p><i class="fa-solid fa-envelope"></i> correo@email.com</p>
-
-      <p>
-        <a href="https://github.com/tuusuario" target="_blank" class="text-white text-decoration-none">
-          <i class="fa-brands fa-github"></i> GitHub
-        </a>
-      </p>
-
-      <p>
-        <a href="https://linkedin.com/in/tuusuario" target="_blank" class="text-white text-decoration-none">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
-        </a>
-      </p>
-    </div>
+  <section id="contacto" class="bg-dark text-white py-5 text-center">
+    <h2>Contacto</h2>
+    <p>📧 cristhian.lozano.f@gmail.com</p>
+    <p>
+      <a href="https://github.com/cris-98" class="text-white" target="_blank">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+    </p>
   </section>
-
 
   <footer class="text-center py-3 bg-secondary text-white">
     © 2026 Cristhian Lozano
   </footer>
-
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -282,9 +209,47 @@
   <script>
     AOS.init({ duration: 900, once: true });
 
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+    // ===== DARK MODE =====
+    const toggleBtn = document.getElementById("darkToggle");
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+
+      localStorage.setItem(
+        "theme",
+        document.body.classList.contains("dark-mode") ? "dark" : "light"
+      );
+    });
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
     }
+
+    // ===== GITHUB REPOS =====
+    const username = "cris-98";
+    const container = document.getElementById("repos");
+
+    fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
+      .then(res => res.json())
+      .then(repos => {
+        repos.slice(0, 6).forEach(repo => {
+          const col = document.createElement("div");
+          col.className = "col-md-4";
+          col.setAttribute("data-aos", "zoom-in");
+
+          col.innerHTML = `
+            <div class="card p-3 h-100">
+              <h5>${repo.name}</h5>
+              <p>${repo.description || "Proyecto disponible en GitHub"}</p>
+              <a href="${repo.html_url}" target="_blank" class="btn btn-outline-dark btn-sm">
+                <i class="fa-brands fa-github"></i> Ver repositorio
+              </a>
+            </div>
+          `;
+
+          container.appendChild(col);
+        });
+      });
   </script>
 
 </body>
